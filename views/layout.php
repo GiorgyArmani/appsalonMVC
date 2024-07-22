@@ -15,7 +15,9 @@
         </div>
        
     </div>
-   
+   <?php 
+    echo $script?? '';  // Mostrará el código JavaScript en caso de que exista en la vista.
+   ?>
             
 </body>
 </html>
