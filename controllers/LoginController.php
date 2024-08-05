@@ -29,7 +29,7 @@ class LoginController {
                             $_SESSION['email'] = $usuario->email;
                             $_SESSION['login'] = true;
 
-                            // Redireccionamiento
+                            // Redireccionamiento (AQUI AGREGO MI SISTEMA DE ROLES CON REDIRECCION)
                             if($usuario->admin === "1"){
                                 $_SESSION['admin'] = $usuario->admin ?? null;
                                 header('Location: /admin');
@@ -53,8 +53,14 @@ class LoginController {
     
 
     public static function logout() {
-      
+      session_start();
+
+      $_SESSION = [];
+
+      header('Location: /');
     }
+
+
     public static function forgot(Router $router) {
 
         $alertas = [];
