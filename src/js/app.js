@@ -100,9 +100,10 @@ function paginaAnterior() {
 }
 
 async function consultarAPI() {
-
+5
     try {
-        const url = 'http://localhost:3000/api/servicios';
+        // const url = `${location.origin}/api/servicios`; de este modo se cambiar por el dominio que tenga el backend
+        const url = '/api/servicios'; //se deja asi cuando el front y el back estan en el mismo dominio
         const resultado = await fetch(url);
         const servicios = await resultado.json();
         mostrarServicios(servicios); 
@@ -309,7 +310,7 @@ async function reservarCita() {
     datos.append('usuarioId', id);
     datos.append('servicios', idServicios); // para pasar un arreglo como un string en el body de la peticion
     try {
-        const url = 'http://localhost:3000/api/citas';
+        const url = '/api/citas';
 
         const respuesta = await fetch(url, {
         method: 'POST', 
